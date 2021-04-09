@@ -11,6 +11,16 @@ export const Container = styled.header`
   justify-content: center;
 
   box-shadow: 0px 0px 12.35px 0.65px rgba(0, 0, 0, 0.13);
+
+  svg {
+    cursor: pointer;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(2);
+    }
+  }
   
   svg.dropdown {
     display: none;
@@ -33,14 +43,7 @@ export const Content = styled.div`
   
   div {
     svg {
-      cursor: pointer;
       margin-right: 2rem;
-
-      transition: filter 0.2s;
-
-      &:hover {
-        filter: brightness(2);
-      }
     }
   }
   

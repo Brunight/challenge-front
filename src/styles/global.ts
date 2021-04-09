@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 
     --icons: #000000;
 
-    --green: #00bc0e;
+    --green: #00bb16;
 
     --text-title: #565656;
     --text-body: #333333;
@@ -43,7 +43,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6, strong {
-    font-weight: 600;
+    font-weight: 700;
   }
 
   button {

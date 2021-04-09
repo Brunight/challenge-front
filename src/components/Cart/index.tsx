@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useRef, MouseEventHandler } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import addDots from '../../utils/addDots';
 import { formatPrice } from '../../utils/format';
 import CartScrollbar from '../CartScrollbar';

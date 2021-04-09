@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef, MouseEventHandler } from 'react';
 import addDots from '../../utils/addDots';
 import { formatPrice } from '../../utils/format';
 import CartScrollbar from '../CartScrollbar';
@@ -18,9 +18,12 @@ interface Product {
 
 interface CartProps {
   isOpen: boolean;
+  close: () => void;
 }
 
-const Cart: React.FC<CartProps> = ({ isOpen }) => {
+const Cart: React.FC<CartProps> = ({ isOpen, close }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
   const [cart, setCart] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -29,6 +32,19 @@ const Cart: React.FC<CartProps> = ({ isOpen }) => {
       .then((data) => setCart(data.cart.item));
   }, []);
 
+  
+  useEffect(() => {
+    function handleClickOutside(event: any) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        if (isOpen) {
+          close();
+        }
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [wrapperRef, isOpen, close]);
   
   const total = formatPrice(
     cart.reduce((sumTotal, product) => {
@@ -43,7 +59,7 @@ const Cart: React.FC<CartProps> = ({ isOpen }) => {
   }, []);
 
   return (
-    <Container isOpen={isOpen} >
+    <Container isOpen={isOpen} ref={wrapperRef} >
       <CartScrollbar>
         {cart.map((product => (
           <CartItem key={product.productId}>

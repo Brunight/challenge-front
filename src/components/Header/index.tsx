@@ -55,7 +55,7 @@ const Header: React.FC = () => {
           <MdShoppingCart size={32} onClick={handleCartClick} />
         </div>
         
-        <Cart isOpen={isCartOpen} />
+        <Cart isOpen={isCartOpen} close={() => setIsCartOpen(false)} />
       </Content>
 
 

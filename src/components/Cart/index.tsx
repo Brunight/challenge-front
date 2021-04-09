@@ -24,7 +24,7 @@ const Cart: React.FC<CartProps> = ({ isOpen }) => {
   const [cart, setCart] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch('/products.json')
+    fetch('products.json')
       .then((res) => res.json())
       .then((data) => setCart(data.cart.item));
   }, []);
@@ -47,7 +47,7 @@ const Cart: React.FC<CartProps> = ({ isOpen }) => {
       <CartScrollbar>
         {cart.map((product => (
           <CartItem key={product.productId}>
-            <img src={product.image} alt={product.name}/>
+            <img src={product.image.substring(1)} alt={product.name}/>
             <ItemInfo>
               <span>{addDots(product.name, 40)}</span>
               <div>

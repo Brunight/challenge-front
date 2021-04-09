@@ -60,6 +60,7 @@ Por fim, usei o método **reduce** para calcular o valor total dos itens no carr
 - React Icons
 - React Hooks
 - Create React App
+- Github Pages
 
 ## 🛠 Instalação
 

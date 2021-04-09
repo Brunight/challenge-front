@@ -1,5 +1,5 @@
 {
-  "name": "challenge",
+  "name": "challenge-front",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,11 +19,14 @@
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
+  "homepage": "https://Brunight.github.io/challenge-front",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +48,7 @@
   },
   "devDependencies": {
     "@types/react-custom-scrollbars": "^4.0.7",
-    "@types/styled-components": "^5.1.9"
+    "@types/styled-components": "^5.1.9",
+    "gh-pages": "^3.1.0"
   }
 }

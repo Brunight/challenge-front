@@ -17,7 +17,7 @@ export const Container = styled.div<ContainerProps>`
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 20px solid var(--cart-background);
+    border-bottom: 20px solid var(--cart-item-background);
   }
 
   ${(props) => props.isOpen && css`

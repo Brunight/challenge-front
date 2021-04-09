@@ -92,6 +92,9 @@ Por fim, usei o método **reduce** para calcular o valor total dos itens no carr
     # O bundle será criado na pasta build
 ```
 
+Ou acesse a demo hospedada no Github Pages:
+https://brunight.github.io/challenge-front/
+
 ---
 <p align="center">
   Feito com 💜 por <a href="https://www.linkedin.com/in/brunight/">Bruno Rodrigues</a>!

@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/challenge-front/static/js/main.df1d0f3e.chunk.js",
+    "main.js.map": "/challenge-front/static/js/main.df1d0f3e.chunk.js.map",
+    "runtime-main.js": "/challenge-front/static/js/runtime-main.918c223b.js",
+    "runtime-main.js.map": "/challenge-front/static/js/runtime-main.918c223b.js.map",
+    "static/js/2.61617502.chunk.js": "/challenge-front/static/js/2.61617502.chunk.js",
+    "static/js/2.61617502.chunk.js.map": "/challenge-front/static/js/2.61617502.chunk.js.map",
+    "index.html": "/challenge-front/index.html",
+    "static/js/2.61617502.chunk.js.LICENSE.txt": "/challenge-front/static/js/2.61617502.chunk.js.LICENSE.txt",
+    "static/media/agencia-eplus-n-logo.490ef0bf.png": "/challenge-front/static/media/agencia-eplus-n-logo.490ef0bf.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.918c223b.js",
+    "static/js/2.61617502.chunk.js",
+    "static/js/main.df1d0f3e.chunk.js"
+  ]
+}

@@ -91,3 +91,8 @@ Por fim, usei o método **reduce** para calcular o valor total dos itens no carr
     $ npm run build
     # O bundle será criado na pasta build
 ```
+
+---
+<p align="center">
+  Feito com 💜 por <a href="https://www.linkedin.com/in/brunight/">Bruno Rodrigues</a>!
+</p>

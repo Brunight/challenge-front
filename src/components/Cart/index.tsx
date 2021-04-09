@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import addDots from '../../utils/addDots';
 import { formatPrice } from '../../utils/format';
 import CartScrollbar from '../CartScrollbar';
@@ -37,7 +37,10 @@ const Cart: React.FC<CartProps> = ({ isOpen }) => {
       return sumTotal;
     }, 0)
   );
-    
+  
+  const handleCheckout = useCallback(() => {
+    console.log('Checkout button clicked!');
+  }, []);
 
   return (
     <Container isOpen={isOpen} >
@@ -56,7 +59,7 @@ const Cart: React.FC<CartProps> = ({ isOpen }) => {
         )))}
       </CartScrollbar>
       <span>Total do pedido: <strong>{total}</strong></span>
-      <button type="button">FINALIZAR COMPRA</button>
+      <button type="button" onClick={handleCheckout}>FINALIZAR COMPRA</button>
     </Container>
   );
 }

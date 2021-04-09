@@ -33,6 +33,14 @@ const Header: React.FC = () => {
     setIsCartOpen((oldValue) => !oldValue);
     setIsCollapsed(true);
   }, []);
+  
+  const handleSearchClick = useCallback(() => {
+    console.log('Search icon clicked!');
+  }, []);
+  
+  const handleProfileClick = useCallback(() => {
+    console.log('Profile icon clicked!');
+  }, []);
 
   return (
     <Container>
@@ -42,8 +50,8 @@ const Header: React.FC = () => {
         {!isMobile && <Menu />}
 
         <div>
-          <MdSearch size={32} />
-          <MdPerson size={32} />
+          <MdSearch size={32} onClick={handleSearchClick} />
+          <MdPerson size={32} onClick={handleProfileClick} />
           <MdShoppingCart size={32} onClick={handleCartClick} />
         </div>
         

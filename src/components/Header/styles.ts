@@ -12,25 +12,34 @@ export const Container = styled.header`
 
   box-shadow: 0px 0px 12.35px 0.65px rgba(0, 0, 0, 0.13);
 
-  svg {
-    cursor: pointer;
-
-    transition: filter 0.2s;
+  button.icon {
+    background: var(--background);
+    border: none;
+    margin-right: 2rem;
+    color: #000;
+    transition: opacity 0.2s;
+    outline: none;
 
     &:hover {
-      filter: brightness(2);
+      opacity: 0.6;
     }
   }
   
-  svg.dropdown {
+  button.dropdown {
     display: none;
+    margin: 0;
   }
 
   @media (max-width: 1120px) {
     padding: 1rem 1rem 0rem;
+
+    button.icon {
+      margin-right: 0.5rem;
+    }
     
-    svg.dropdown {
+    button.dropdown {
       display: block;
+      margin: 0;
     }
   }
 `;
@@ -41,12 +50,6 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
   
-  div {
-    svg {
-      margin-right: 2rem;
-    }
-  }
-  
   @media (max-width: 1270px) {
     img {
       width: 220px;
@@ -56,12 +59,6 @@ export const Content = styled.div`
   @media (max-width: 1120px) {
     img {
       width: 200px;
-    }
-
-    div {
-      svg {
-        margin-right: 0.5rem;
-      }
     }
   }
 `;

@@ -50,9 +50,27 @@ const Header: React.FC = () => {
         {!isMobile && <Menu />}
 
         <div>
-          <MdSearch size={32} onClick={handleSearchClick} />
-          <MdPerson size={32} onClick={handleProfileClick} />
-          <MdShoppingCart size={32} onClick={handleCartClick} />
+          <button
+            type="button"
+            onClick={handleSearchClick}
+            className="icon"
+          >
+            <MdSearch size={32} />
+          </button>
+          <button
+            type="button"
+            onClick={handleProfileClick}
+            className="icon"
+          >
+            <MdPerson size={32} />
+          </button>
+          <button
+            type="button"
+            onClick={handleCartClick}
+            className="icon"
+          >
+            <MdShoppingCart size={32} />
+          </button>
         </div>
         
         <Cart isOpen={isCartOpen} close={() => setIsCartOpen(false)} />
@@ -60,18 +78,16 @@ const Header: React.FC = () => {
 
 
       {isMobile && !isCollapsed && <Menu isMobile />}
-      {isCollapsed
-        ? <MdArrowDropDown
-          className="dropdown"
-          size={32}
-          onClick={handleCollapseClick}
-        />
-        : <MdArrowDropUp
-          className="dropdown"
-          size={32}
-          onClick={handleCollapseClick}
-        />
-      }
+      <button
+        type="button"
+        onClick={handleCollapseClick}
+        className="icon dropdown"
+      >
+        {isCollapsed
+          ? <MdArrowDropDown size={32} />
+          : <MdArrowDropUp size={32} />
+        }
+      </button>
     </Container>
   );
 }

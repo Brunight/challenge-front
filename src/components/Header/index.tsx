@@ -29,7 +29,8 @@ const Header: React.FC = () => {
     setIsCartOpen(false);
   }, []);
 
-  const handleCartClick = useCallback(() => {
+  const handleCartClick = useCallback((e) => {
+    e.preventDefault();
     setIsCartOpen((oldValue) => !oldValue);
     setIsCollapsed(true);
   }, []);
@@ -73,7 +74,7 @@ const Header: React.FC = () => {
           </button>
         </div>
         
-        <Cart isOpen={isCartOpen} close={() => setIsCartOpen(false)} />
+        {isCartOpen && <Cart close={() => setIsCartOpen(false)} />}
       </Content>
 
 

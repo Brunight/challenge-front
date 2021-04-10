@@ -1,11 +1,6 @@
 import styled, { css } from 'styled-components';
 
-interface ContainerProps {
-  isOpen: boolean;
-}
-
-export const Container = styled.div<ContainerProps>`
-  display: none;
+export const Container = styled.div`
   background: var(--cart-background);
   &:before {
     content: "";
@@ -20,30 +15,28 @@ export const Container = styled.div<ContainerProps>`
     border-bottom: 20px solid var(--cart-item-background);
   }
 
-  ${(props) => props.isOpen && css`
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 91px;
-    right: 32px;
-    width: 320px;
-    height: 460px;
-    box-shadow: 0px 2px 4.95px 0.05px rgba(0, 0, 0, 0.14);
-    
-    @media (max-width: 1270px) {
-      top: 73px;
-    }
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 91px;
+  right: 32px;
+  width: 320px;
+  height: 460px;
+  box-shadow: 0px 2px 4.95px 0.05px rgba(0, 0, 0, 0.14);
+  
+  @media (max-width: 1270px) {
+    top: 73px;
+  }
 
-    @media (max-width: 1120px) {
-      top: 84px;
-      right: 10px;
-      min-width: 300px;
-      
-      &:before {
-        right: 7px;
-      }
+  @media (max-width: 1120px) {
+    top: 84px;
+    right: 10px;
+    min-width: 300px;
+    
+    &:before {
+      right: 7px;
     }
-  `}
+  }
 
   span {
     text-align: center;

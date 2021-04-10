@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState, useRef } from 'react';
 import addDots from '../../utils/addDots';
 import { formatPrice } from '../../utils/format';
 import CartScrollbar from '../CartScrollbar';
+import { findDOMNode } from 'react-dom';
 
 import { Container, CartItem, ItemInfo } from './styles';
 
@@ -17,11 +18,10 @@ interface Product {
 }
 
 interface CartProps {
-  isOpen: boolean;
   close: () => void;
 }
 
-const Cart: React.FC<CartProps> = ({ isOpen, close }) => {
+const Cart: React.FC<CartProps> = ({ close }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const [cart, setCart] = useState<Product[]>([]);
@@ -34,17 +34,21 @@ const Cart: React.FC<CartProps> = ({ isOpen, close }) => {
 
   
   useEffect(() => {
-    function handleClickOutside(event: any) {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        if (isOpen) {
-          close();
-        }
+    function handleClickOutside(event: MouseEvent) {
+      const cartNode = findDOMNode(wrapperRef.current);
+      if (!cartNode || !cartNode.contains(event.target as Node)) {
+        close();
+        event.stopPropagation();
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [wrapperRef, isOpen, close]);
+    document.addEventListener("click", handleClickOutside, true);
+    return () => document.removeEventListener(
+      "click", 
+      handleClickOutside, 
+      true
+    );
+  }, [wrapperRef, close]);
   
   const total = formatPrice(
     cart.reduce((sumTotal, product) => {
@@ -59,7 +63,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, close }) => {
   }, []);
 
   return (
-    <Container isOpen={isOpen} ref={wrapperRef} >
+    <Container ref={wrapperRef} >
       <CartScrollbar>
         {cart.map((product => (
           <CartItem key={product.productId}>
